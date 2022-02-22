@@ -11,18 +11,18 @@ public class Work extends Thread{
 
 
                 synchronized (this){
-                while (true){
+              // while (true){
                     System.out.println(Thread.currentThread().getName());
-
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
+                    System.out.println(Thread.currentThread().getName() + " End");
                 }
 
 
         }
-    }}}
+    }}//}
 

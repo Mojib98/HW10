@@ -5,6 +5,11 @@ public class Main6 {
         System.out.println("Start");
         Work work1=new Work();
         Work work2 = new Work();
+        Work mt[] = new Work[10];
+        for (int i=0; i<mt.length; i++) {
+            mt[i] = new Work(); // create thread
+            mt[i].start();
+        }
         work1.start();
         work2.start();
        // Work works[] = new Work[10];
