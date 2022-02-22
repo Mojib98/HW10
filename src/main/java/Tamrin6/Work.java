@@ -9,13 +9,20 @@ public class Work extends Thread{
           //      System.out.println(i);
            System.out.println(Thread.currentThread().getName());
 
-            try {
+
+                synchronized (this){
                 while (true){
-                    Thread.sleep(2000);
+                    System.out.println(Thread.currentThread().getName());
+
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }}
-}
+
+
+        }
+    }}}
+

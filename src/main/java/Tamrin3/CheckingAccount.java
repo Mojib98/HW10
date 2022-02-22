@@ -1,8 +1,8 @@
-package Tamrin2;
+package Tamrin3;
 
-public class CheckingAccount2 {
+public class CheckingAccount {
     private int balance;
-    public CheckingAccount2(int initialBalance) {
+    public CheckingAccount(int initialBalance) {
         balance = initialBalance;
     }
     public boolean withdraw(int amount) {
@@ -17,20 +17,23 @@ public class CheckingAccount2 {
         return false;
     }
     public static void main(String[] args) {
-        final CheckingAccount2 ca = new CheckingAccount2(100);
+        final CheckingAccount ca = new CheckingAccount(100);
         Runnable r = new Runnable() {
-            Object lock;
             @Override
             public void run() {
                 String name = Thread.currentThread().getName();
-                synchronized (name){
+                 synchronized (name){
                 for (int i = 0; i < 10; i++)
                     System.out.println(name + " withdraws $10: " +
                             ca.withdraw(10)+" "+ca.balance+" "+i);
-            }}
+                     try {
+                         Thread.sleep(100);
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
+                 }
+        }
         };
-        Object h = new Object();
-        Object w = new Object();
         Thread thdHusband = new Thread(r);
         thdHusband.setName("Husband");
         Thread thdWife = new Thread(r);

@@ -1,4 +1,4 @@
-package Tamrin2;
+package Tamrin3;
 
 public class n {
         private int balance;

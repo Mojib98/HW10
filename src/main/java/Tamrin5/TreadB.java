@@ -2,7 +2,7 @@ package Tamrin5;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TreadB implements Runnable{
+public class TreadB extends Thread{
     ReentrantLock reentrantLock1;
     ReentrantLock reentrantLock2;
 
@@ -14,7 +14,10 @@ public class TreadB implements Runnable{
     @Override
     public void run() {
         reentrantLock2.lock();
-        //Do something
+        //D
+        for (int i = 0;i<0;i++){
+            System.out.println(i);
+        }
         if (!reentrantLock1.isLocked()){
             reentrantLock2.unlock();
         }
