@@ -10,8 +10,8 @@ public class Main6 {
             mt[i] = new Work(); // create thread
             mt[i].start();
         }
-        work1.start();
-        work2.start();
+     //   work1.start();
+    //    work2.start();
        // Work works[] = new Work[10];
         // for (int i=0; i<works.length; i++) {
          //   works[i] = new Work(); // create thread

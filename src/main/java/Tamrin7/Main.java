@@ -8,9 +8,15 @@ public class Main {
         Inserting inserting = new Inserting();
         ExecutorService executorService = Executors.newFixedThreadPool(5);
 
-        for (int i = 0 ;i<5;i++){
+
             executorService.submit(inserting);
-        }
+            executorService.submit(inserting);
+            executorService.submit(inserting);
+            executorService.submit(inserting);
+            executorService.submit(inserting);
+            executorService.submit(inserting);
+            executorService.submit(inserting);
+
         executorService.shutdown();
 
         System.out.println(executorService.isShutdown());

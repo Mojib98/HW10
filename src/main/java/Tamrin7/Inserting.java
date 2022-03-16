@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
 
 public class Inserting extends Thread{
     Connection connection;
-    volatile int i;
+
 
     {
         try {
@@ -25,30 +25,30 @@ public class Inserting extends Thread{
 
     @Override
     public void run() {
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         String sql ="INSERT INTO test(test1, test2) values (?,?)";
+
+
         try {
-
-
             preparedStatement = connection.prepareStatement(sql);
-
-            for (i =0;i<100;i++){
-
-                System.out.println(Thread.currentThread().getName());
-                preparedStatement.setInt(1,i);
-                preparedStatement.setString(2,Thread.currentThread().getName());
-
-                preparedStatement.execute();
-                semaphore.release();
-                //Thread.sleep(100);
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
+        for (int i =0;i<100;i++){
+
+                System.out.println(Thread.currentThread().getName());
+
+                try {
+                    preparedStatement.setInt(1,i);
+                    preparedStatement.setString(2,Thread.currentThread().getName());
+                    preparedStatement.execute();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                //Thread.sleep(100);
+
+
     }
-}
+}}

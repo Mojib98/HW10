@@ -2,8 +2,8 @@ package Tamrin6B;
 
 public class MainWorker6B {
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Worker6B());
-        Thread t2 = new Thread(new Worker6B());
+      //  Thread t1 = new Thread(new Worker6B());
+     //   Thread t2 = new Thread(new Worker6B());
         WorkerB6 workerB6 = new WorkerB6();
         WorkerB6B workerB62 = new WorkerB6B();
 
